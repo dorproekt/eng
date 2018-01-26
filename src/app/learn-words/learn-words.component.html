@@ -1,0 +1,17 @@
+<div class="row" *ngFor="let word of words">
+    <div class="col-md-6">
+        <div class="alert alert-info" role="alert">
+            {{ word.en | uppercase }}
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="alert alert-success" role="alert">
+            {{ word.ru | uppercase }}
+        </div>
+    </div>
+</div>
+<button type="button" class="btn btn-secondary" (click)='random()'>Next</button>
+<ul>
+    <li>{{ word.en }}</li>
+    <li>{{ word.ru }}</li>
+</ul>
