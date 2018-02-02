@@ -1,0 +1,20 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">En</th>
+      <th scope="col">Ru</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let word of words; index as i;">
+      <th scope="row">{{ i+1 }}</th>
+      <td>{{ word.en }}</td>
+      <td>{{ word.ru }}</td>
+      <td><button type="button" class="btn btn-sm btn-outline-warning">Edit</button></td>
+      <td><button type="button" class="btn btn-sm btn-outline-danger" (click)="delete(word.key, i)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>

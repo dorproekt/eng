@@ -17,12 +17,14 @@ import { environment } from '../environments/environment';
 
 // Services
 import { WordsService } from './words.service';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddWordComponent,
-    LearnWordsComponent
+    LearnWordsComponent,
+    EditComponent
   ],
   imports: [
       AppRoutingModule,
