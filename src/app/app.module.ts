@@ -24,7 +24,7 @@ import { EditComponent } from './edit/edit.component';
     AppComponent,
     AddWordComponent,
     LearnWordsComponent,
-    EditComponent
+    EditComponent,
   ],
   imports: [
       AppRoutingModule,

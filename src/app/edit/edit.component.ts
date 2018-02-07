@@ -9,6 +9,8 @@ import { Observable } from 'rxjs/Observable';
 })
 export class EditComponent implements OnInit {
     words: Array<object> = [];
+    isVisibleModal = false;
+    editData: object;
 
     constructor(private wordService: WordsService) { }
 
@@ -35,5 +37,27 @@ export class EditComponent implements OnInit {
                 console.log('Слово удалено!', res);
             })
             .catch(err => console.log(err, 'You do not have access!'));
+    }
+
+    edit(i, ru, en, key) {
+        this.isVisibleModal = true;
+        this.editData = {
+            i,
+            ru,
+            en,
+            key
+        };
+    }
+
+    cancelModal() {
+        this.isVisibleModal = false;
+    }
+
+    saveEdit() {
+        this.wordService.edit(this.editData['key'], this.editData)
+            .then(_ => {
+                this.words[this.editData['i']] = this.editData;
+                this.isVisibleModal = false;
+            });
     }
 }

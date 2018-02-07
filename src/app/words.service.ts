@@ -23,6 +23,10 @@ export class WordsService {
         return this.db.list('words').remove(key);
     }
 
+    edit(key: string, data: object) {
+        return this.db.list('words').update(key, data);
+    }
+
     test() {
         const itemRef = this.db.list('words').snapshotChanges(['child_added']);
         itemRef.subscribe(actions => {

@@ -12,6 +12,7 @@ export class LearnWordsComponent implements OnInit {
     word: object = {};
     randomNumber = -1;
     cnt = 0;
+    isVisible = true;
 
     constructor(private wordsService: WordsService) { }
 
@@ -37,6 +38,10 @@ export class LearnWordsComponent implements OnInit {
             this.word = this.words[num];
             this.randomNumber = num;
         }
+    }
+
+    setVisibla() {
+        this.isVisible = !this.isVisible;
     }
 
     lastWord() {

@@ -1,14 +1,15 @@
-<div class="row" (keypress)="test($event)">
-    <div class="col-md-6">
-        <div class="alert alert-info" role="alert">
-            {{ word.en | uppercase }}
-        </div>
-    </div>
+<div class="row" *ngIf="word.ru">
     <div class="col-md-6">
         <div class="alert alert-success" role="alert">
             {{ word.ru | uppercase }}
         </div>
     </div>
+    <div class="col-md-6">
+        <div class="alert alert-info" role="alert" *ngIf="isVisible">
+            {{ word.en | uppercase }}
+        </div>
+    </div>
 </div>
 <button type="button" class="btn btn-secondary" (click)='randomWord()'>Next Random</button>
 <button type="button" class="btn btn-warning" (click)='lastWord()'>Next Last Words</button>
+<input type="checkbox" (change)="setVisibla()">

@@ -1,4 +1,35 @@
-<table class="table table-hover">
+<div class="container">
+    <h2>Список слов</h2>
+    <div class="row" *ngFor="let word of words; index as i;">
+        <div class="col-12 col-sm-1 i">{{ i+1 }}</div>
+        <div class="col-12 col-sm-4 word-ru">{{ word.en }}</div>
+        <div class="col-12 col-sm-4 word-en">{{ word.ru }}</div>
+        <div class="col-12 col-sm-3 word-edit-delete">
+            <button type="button" (click)='edit(i, word.ru, word.en, word.key)' class="btn btn-sm btn-outline-warning">Edit</button>
+            <button type="button" class="btn btn-sm btn-outline-danger" (click)="delete(word.key, i)">Delete</button>
+        </div>
+    </div>
+</div>
+<div class="appModal" *ngIf="isVisibleModal">
+    <div class="container">
+        <div class="modal-body">
+           <h2>Edit</h2>
+            <div class="col-sm-4 offset-sm-4">
+                <input type="text" class="form-control" [value]="editData.en" (input)="editData.en = $event.target.value">
+            </div>
+            <div class="col-sm-4 offset-sm-4">
+                <input type="text" class="form-control" [value]="editData.ru"  (input)="editData.ru = $event.target.value">
+            </div>
+            <div class="col-sm-4 offset-sm-4">
+                <button type="button" (click)="saveEdit()" class="btn btn-sm btn-warning">Save</button>
+                <button type="button" (click)="cancelModal()" class="btn btn-sm btn-danger">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--
+ <table class="table table-hover">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -11,10 +42,15 @@
   <tbody>
     <tr *ngFor="let word of words; index as i;">
       <th scope="row">{{ i+1 }}</th>
-      <td>{{ word.en }}</td>
-      <td>{{ word.ru }}</td>
-      <td><button type="button" class="btn btn-sm btn-outline-warning">Edit</button></td>
+      <td>
+            {{ word.en }}
+      </td>
+      <td>
+            {{ word.ru }}
+      </td>
+      <td><button type="button" (click)='edit()' class="btn btn-sm btn-outline-warning">Edit</button></td>
       <td><button type="button" class="btn btn-sm btn-outline-danger" (click)="delete(word.key, i)">Delete</button></td>
     </tr>
   </tbody>
 </table>
+-->
